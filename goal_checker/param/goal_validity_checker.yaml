@@ -1,0 +1,6 @@
+goal_checker:
+  ros__parameters:
+    max_range_new_goal: 2.0
+    set_unknown_area_search: True
+    free_thresh: 65
+    min_range: 0.1

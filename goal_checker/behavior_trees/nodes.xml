@@ -1,0 +1,53 @@
+<root ID="TreeNodeModel">
+  <TreeNodesModel> 
+    <Action ID="BackUp">
+        <input_port name="backup_dist">Distance to backup</input_port>
+        <input_port name="backup_speed">Speed at which to backup</input_port>
+    </Action>
+    <Action ID="FollowPath">
+        <input_port name="controller_id"/>
+        <input_port default="GoalChecker" name="goal_checker_id">Goal checker</input_port>
+        <input_port name="path">Path to follow</input_port>
+        <input_port name="server_timeout"/>
+    </Action>
+    <Action ID="NavigateToPose">
+        <input_port name="orientation">Orientation</input_port>
+        <input_port name="position">Position</input_port>
+    </Action>
+    <Action ID="Spin">
+        <input_port name="spin_dist">Spin distance</input_port>
+    </Action>
+    <Action ID="Wait">
+        <input_port name="wait_duration">Wait time</input_port>
+    </Action>
+    <Control ID="RecoveryNode">
+        <input_port name="number_of_retries" type="int">Number of retries</input_port>
+    </Control>
+    <Control ID="PipelineSequence"/>
+    <Decorator ID="RateController">
+        <input_port name="hz" type="double">Rate</input_port>
+    </Decorator>
+    <Action ID="ComputePathToPose">
+        <input_port name="goal">Destination to plan to</input_port>
+        <output_port name="path">Path created by ComputePathToPose node</output_port>
+        <input_port name="planner_id"/>
+        <input_port name="server_timeout"/>
+    </Action>
+    <Decorator ID="GoalUpdater">
+        <input_port name="input_goal">The original goal pose</input_port>
+        <output_port name="output_goal">Updated goal pose from subscription</output_port>
+    </Decorator>
+    <Condition ID="GoalUpdated"/>
+    <Action ID="ClearEntireCostmap">
+        <input_port name="server_timeout" type="std::chrono::duration&lt;long, std::ratio&lt;1l, 1000l&gt; &gt;"/>
+        <input_port name="service_name" type="std::string">please_set_service_name_in_BT_Node</input_port>
+    </Action>
+    <Control ID="RoundRobin"/>
+    <Action ID="GoalCheckerService">
+        <input_port name="goal" />
+        <output_port name="new_goal"/>
+
+        <!-- add output and fix type of input-->
+    </Action>
+  </TreeNodesModel> 
+</root>
