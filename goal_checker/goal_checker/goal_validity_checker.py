@@ -27,7 +27,7 @@ from nav_msgs.msg import OccupancyGrid
 from geometry_msgs.msg import Pose
 from goal_checker_msgs.srv import GoalChecker
 
-from search import Search
+from goal_checker.search import Search
 
 
 class GoalCheckerService(Node):
