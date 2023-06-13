@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 #    Goal Validity Checker - ROS 2 Node checking valid goal poses during navigation.
 #    Copyright (C) 2023  Karelics Oy
 #
@@ -14,7 +16,6 @@
 #    You should have received a copy of the GNU General Public License
 #    along with this program. If not, see <https://www.gnu.org/licenses/>.
 
-#!/usr/bin/env python3
 
 import rclpy
 from rclpy.node import Node
@@ -26,7 +27,7 @@ from nav_msgs.msg import OccupancyGrid
 from geometry_msgs.msg import Pose
 from goal_checker_msgs.srv import GoalChecker
 
-from search import Search
+from goal_checker.search import Search
 
 
 class GoalCheckerService(Node):
