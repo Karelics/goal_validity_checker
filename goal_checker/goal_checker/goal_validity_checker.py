@@ -102,7 +102,7 @@ class GoalCheckerService(Node):
             response.new_goal_pose.pose.position = orig_goal_pose
             response.success = True
             response.message = "Original valid pose"
-            self.get_logger().info("NO OBSTACLES CAN SAFELY NAVIGATE")
+            self.get_logger().debug("No obstacles: can safely navigate!")
 
         elif result.state.value == "UNKNOWN":
             response.new_goal_pose.pose = Pose()
