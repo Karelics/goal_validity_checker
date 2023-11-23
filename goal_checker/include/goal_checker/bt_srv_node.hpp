@@ -62,7 +62,7 @@ public:
    */
 
   void on_tick() override;
-  BT::NodeStatus on_completion() override;
+  BT::NodeStatus on_completion();
 
   /**
    * @brief Creates list of BT ports
