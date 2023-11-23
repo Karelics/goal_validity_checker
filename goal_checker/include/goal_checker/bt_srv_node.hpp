@@ -25,7 +25,7 @@
 #include "behaviortree_cpp_v3/action_node.h"
 
 #include "nav2_behavior_tree/bt_service_node.hpp"
-#include "nav2_behavior_tree/bt_conversions.hpp"
+#include "nav2_behavior_tree/bt_utils.hpp"
 #include "nav2_util/node_utils.hpp"
 
 #include "nav2_msgs/srv/clear_entire_costmap.hpp"
