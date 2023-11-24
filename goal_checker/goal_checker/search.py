@@ -1,5 +1,3 @@
-#!/usr/bin/env python3
-
 #    Goal Validity Checker - ROS 2 Node checking valid goal poses during navigation.
 #    Copyright (C) 2023  Karelics Oy
 #
