@@ -33,7 +33,7 @@ void GoalCheckerService::on_tick()
     getInput("goal", request_->goal_pose);
 }
 
-BT::NodeStatus GoalCheckerService::on_completion(std::shared_ptr<goal_checker_msgs::srv::GoaChecker::Response response)
+BT::NodeStatus GoalCheckerService::on_completion(std::shared_ptr<goal_checker_msgs::srv::GoaChecker::Response> response)
 {
     if (response->success) {
       setOutput("new_goal", response->new_goal_pose);
