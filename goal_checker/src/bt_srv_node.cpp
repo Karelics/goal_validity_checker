@@ -33,11 +33,10 @@ void GoalCheckerService::on_tick()
     getInput("goal", request_->goal_pose);
 }
 
-BT::NodeStatus GoalCheckerService::on_completion()
+BT::NodeStatus GoalCheckerService::on_completion(std::shared_ptr<goal_checker_msgs::srv::GoaChecker::Response response)
 {
-    auto answer = future_result_.get();
-    if (answer->success) {
-      setOutput("new_goal", answer->new_goal_pose);
+    if (response->success) {
+      setOutput("new_goal", response->new_goal_pose);
       return BT::NodeStatus::SUCCESS;
     } else {
       return BT::NodeStatus::FAILURE;

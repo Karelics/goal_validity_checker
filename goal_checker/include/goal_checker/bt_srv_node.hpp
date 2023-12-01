@@ -62,7 +62,7 @@ public:
    */
 
   void on_tick() override;
-  BT::NodeStatus on_completion();
+  BT::NodeStatus on_completion(std::shared_ptr<goal_checker_msgs::srv::GoaChecker::Response> response) override;
 
   /**
    * @brief Creates list of BT ports
