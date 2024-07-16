@@ -101,12 +101,13 @@ class GoalCheckerService(Node):
             response.new_goal_pose.pose.position = orig_goal_pose
             response.success = True
             response.message = "Original valid pose"
-            self.get_logger().info("NO OBSTACLES CAN SAFELY NAVIGATE")
+            self.get_logger().info("No obstacles, can safely navigate")
 
         elif result.state.value == "UNKNOWN":
             response.new_goal_pose.pose = Pose()
             response.success = False
-            response.message = "Unkown area"
+            response.message = "Unknown area"
+            response.error_code = GoalChecker.Response.UNKNOWN_AREA
             self.get_logger().error("Unknown area please select a VALID goal pose")
 
         elif result.state.value == "NEW_GOAL_FOUND":
@@ -114,13 +115,14 @@ class GoalCheckerService(Node):
             response.success = True
             response.message = "New goal pose found"
             self.get_logger().info(
-                "NEW GOAL FOUND at: (%.2f, %.2f)" % (result.goal.x, result.goal.y)
+                "New goal found at: (%.2f, %.2f)" % (result.goal.x, result.goal.y)
             )
 
         elif result.state.value == "OUT_OF_RANGE":
             response.new_goal_pose.pose = Pose()
             response.success = False
             response.message = "No goal found within the defined range"
+            response.error_code = GoalChecker.Response.OUT_OF_RANGE
             self.get_logger().error(
                 "No goal found within the defined range of: %.2f meters"
                 % max_range_new_goal
@@ -129,6 +131,7 @@ class GoalCheckerService(Node):
         else:
             response.success = False
             response.message = "Got undefined state for the new goal"
+            response.error_code = GoalChecker.Response.UNKNOWN
 
         return response
 

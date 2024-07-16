@@ -1,6 +1,13 @@
 geometry_msgs/PoseStamped goal_pose
 ---
+# Error codes
+uint16 NONE=0
+uint16 UNKNOWN=200
+uint16 UNKNOWN_AREA=201
+uint16 OUT_OF_RANGE=202
+
 bool success
 string message
 geometry_msgs/PoseStamped new_goal_pose
+uint16 error_code
  

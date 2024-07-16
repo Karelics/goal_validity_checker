@@ -79,6 +79,7 @@ public:
         BT::OutputPort<geometry_msgs::msg::PoseStamped>(
           "new_goal", 
           "New goal pose"),
+        BT::OutputPort<goal_checker_msgs::srv::GoalChecker::Response::_error_code_type>("error_code_id", "The goal checker error code"),
       });
   }
 };
