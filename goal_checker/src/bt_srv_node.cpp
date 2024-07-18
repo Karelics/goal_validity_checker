@@ -21,11 +21,12 @@
 
 namespace nav2_behavior_tree
 {
+using GoalCheckerSrv = goal_checker_msgs::srv::GoalChecker;
 
 GoalCheckerService::GoalCheckerService(
   const std::string & service_node_name,
   const BT::NodeConfiguration & conf)
-: BtServiceNode<goal_checker_msgs::srv::GoalChecker>(service_node_name, conf){}
+: BtServiceNode<GoalCheckerSrv>(service_node_name, conf){}
 
 
 void GoalCheckerService::on_tick()
@@ -33,8 +34,9 @@ void GoalCheckerService::on_tick()
     getInput("goal", request_->goal_pose);
 }
 
-BT::NodeStatus GoalCheckerService::on_completion(std::shared_ptr<goal_checker_msgs::srv::GoalChecker::Response> response)
+BT::NodeStatus GoalCheckerService::on_completion(std::shared_ptr<GoalCheckerSrv::Response> response)
 {
+    setOutput("error_code_id", response->error_code);
     if (response->success) {
       setOutput("new_goal", response->new_goal_pose);
       return BT::NodeStatus::SUCCESS;

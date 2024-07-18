@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 #    Goal Validity Checker - ROS 2 Node checking valid goal poses during navigation.
 #    Copyright (C) 2023  Karelics Oy
 #
@@ -14,7 +16,6 @@
 #    You should have received a copy of the GNU General Public License
 #    along with this program. If not, see <https://www.gnu.org/licenses/>.
 
-#!/usr/bin/env python3
 
 import unittest
 
@@ -28,7 +29,7 @@ import rclpy
 
 
 class TestGoalValidityChecker(unittest.TestCase):
-    def test_intially_free_valid(self):
+    def test_initially_free_valid(self):
         """Initially free goal point surrounded by at least min_range of free space"""
         search = Search(self.get_occupancy_grid(), 0.5, 65, False, 0.2)
         goal_point = Point(x=0.6, y=0.5)
@@ -36,7 +37,7 @@ class TestGoalValidityChecker(unittest.TestCase):
         self.assertEqual(result.state, State.VALID)
         self.assertEqual(result.goal, goal_point)
 
-    def test_intially_free_not_valid(self):
+    def test_initially_free_not_valid(self):
         """Initially free goal point which is not surrounded by min_range of free space"""
         search = Search(self.get_occupancy_grid(), 0.5, 65, False, 0.2)
         goal_point = Point(x=0.4, y=0.1)
