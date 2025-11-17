@@ -15,7 +15,7 @@ find_package(ament_cmake_python REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(rclpy REQUIRED)
 find_package(geometry_msgs REQUIRED)
-find_package(behaviortree_cpp_v3 REQUIRED)
+find_package(behaviortree_cpp REQUIRED)
 find_package(nav2_behavior_tree REQUIRED)
 find_package(goal_checker_msgs REQUIRED)
 
@@ -37,10 +37,10 @@ install(PROGRAMS
 include_directories(include)
 set(plugin_dependencies
     rclcpp
-    behaviortree_cpp_v3
+    behaviortree_cpp
     nav2_behavior_tree
     goal_checker_msgs
-    )
+)
 
 add_library(goal_checker_bt_node SHARED src/bt_srv_node.cpp)
 ament_target_dependencies(goal_checker_bt_node ${plugin_dependencies})

@@ -14,15 +14,14 @@
 // You should have received a copy of the GNU General Public License
 // along with this program. If not, see <https://www.gnu.org/licenses/>.
 
-#ifndef BT_SRV_NODE_HPP_
-#define BT_SRV_NODE_HPP_
+#pragma once
 
 #include <string>
 #include <memory>
 #include <chrono>
 
 #include "rclcpp/rclcpp.hpp"
-#include "behaviortree_cpp_v3/action_node.h"
+#include "behaviortree_cpp/action_node.h"
 
 #include "nav2_behavior_tree/bt_service_node.hpp"
 #include "nav2_behavior_tree/bt_utils.hpp"
@@ -84,5 +83,3 @@ public:
   }
 };
 }  // namespace nav2_behavior_tree
-
-#endif  // BT_SRV_NODE_HPP_

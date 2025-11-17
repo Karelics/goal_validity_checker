@@ -15,7 +15,7 @@
   <depend>geometry_msgs</depend>
   <depend>goal_checker_msgs</depend>
   <depend>nav2_behavior_tree</depend>
-  <depend>behaviortree_cpp_v3</depend>
+  <depend>behaviortree_cpp</depend>
 
   <test_depend>ament_lint_auto</test_depend>
   <test_depend>ament_lint_common</test_depend>
